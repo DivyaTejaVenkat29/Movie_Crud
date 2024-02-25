@@ -37,12 +37,14 @@ export class AppComponent {
     this.showForm = true;
     this.resetForm();
     document.body.style.backgroundColor = 'rgba(0,0,0.4)'; // Change background color to black
+    document.body.style.color='rgb(255, 255, 255)';
   }
 
   stop() {
     this.showForm = false;
     this.resetForm();
     document.body.style.backgroundColor = 'white';
+    document.body.style.color='black';
   }
 
   update(id: number) {
@@ -50,6 +52,8 @@ export class AppComponent {
       this.editMode = true;
       this.showForm = true;
       document.body.style.backgroundColor = 'rgba(0,0,0.4)'; // Change background color to black
+      document.body.style.color='rgb(255, 255, 255)';
+
     
   }
 
