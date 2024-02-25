@@ -32,10 +32,13 @@
   
   .btn-group {
     margin-top: 10px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
   
   .btn {
-    padding: 8px 16px;
+    padding: 10px 16px;
     margin-right: 10px;
     cursor: pointer;
   }
@@ -58,15 +61,17 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
   }
-  .myForm
-{
-   position: absolute;
-   background-color: aqua;
-   top: 30%;
-   left: 40%;
-   z-index:2;
-   padding: 50px;
-}
+  
+    .myForm {
+        position: absolute;
+        background-color: rgba(128, 128, 128, 0.5); /* Grey with 50% transparency */
+        top: 30%;
+        left: 40%;
+        z-index: 2;
+        padding: 50px;
+        align-items: center;
+        justify-content: center;
+      }
 .myForm input
 {
    background-color:white;

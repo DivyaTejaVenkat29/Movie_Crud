@@ -1,6 +1,6 @@
 <h1>Movie CRUD APPLICATION</h1>
-
-<div class="add-button-container">
+<p>Number of Movies: {{ movies.length }}</p>
+<div class="add-button-container container-fluid">
   <button class="btn btn-primary" (click)="add()">Add</button>
 </div>
 <div *ngIf="showForm" class="myForm">
@@ -14,7 +14,7 @@
   <button *ngIf="editMode" class="btn btn-primary" (click)="patchData()">Patch</button>
 </div>
 
-<div class="movies">
+<div class="movies container-fluid">
   <div class="movie" *ngFor="let m of movies">
     <img [src]="m.image" [alt]="m.movie_name">
     <h2>{{ m.movie_name }}</h2>

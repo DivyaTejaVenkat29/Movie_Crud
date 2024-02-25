@@ -53,7 +53,13 @@ export class AppComponent {
       this.showForm = true;
       document.body.style.backgroundColor = 'rgba(0,0,0.4)'; // Change background color to black
       document.body.style.color='rgb(255, 255, 255)';
-
+      const selectedMovie = this.movies.find(movie => movie.id === id);
+      if (selectedMovie) {
+        this.movieName = selectedMovie.movie_name;
+        this.movieGenre = selectedMovie.genre;
+        this.movieYear = selectedMovie.year;
+        this.movieImageLink = selectedMovie.image;
+      }
     
   }
 
