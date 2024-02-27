@@ -9,22 +9,22 @@ export class MovieService {
   constructor(private hc: HttpClient) { }
 
   getMovies() {
-    return this.hc.get('https://apigenerator.dronahq.com/api/52BCbNyE/Movie_api');
+    return this.hc.get('http://teja2906.pythonanywhere.com/movie/?format=json');
   }
 
   deleteMovie(id: number) {
-    return this.hc.delete(`https://apigenerator.dronahq.com/api/52BCbNyE/Movie_api/${id}`);
+    return this.hc.delete(`http://teja2906.pythonanywhere.com/movie/${id}/?format=json`);
   }
 
   createMovie(movieData: any) {
-    return this.hc.post('https://apigenerator.dronahq.com/api/52BCbNyE/Movie_api/', movieData);
+    return this.hc.post('http://teja2906.pythonanywhere.com/movie/?format=json', movieData);
   }
 
   updateMovie(updatedmovieData: any, id: number) {
-    return this.hc.put(`https://apigenerator.dronahq.com/api/52BCbNyE/Movie_api/${id}`, updatedmovieData);
+    return this.hc.put(`http://teja2906.pythonanywhere.com/movie/${id}/?format=json`, updatedmovieData);
   }
 
   patchMovie(id: number, updatedmovieData: any) {
-    return this.hc.patch(`https://apigenerator.dronahq.com/api/52BCbNyE/Movie_api/${id}`, updatedmovieData);
+    return this.hc.patch(`http://teja2906.pythonanywhere.com/movie/${id}/?format=json`, updatedmovieData);
   }
 }
