@@ -71,18 +71,22 @@ export class AppComponent {
       image: this.movieImageLink,
     };
     if (this.editMode) {
-      this.movieService.updateMovie(movieData, this.movieId!).subscribe(() => {
-        this.loadMovies();
-        this.stop();
-      });
+      // Update existing movie
+      if (this.movieId) {
+        this.movieService.updateMovie(movieData, this.movieId).subscribe(() => {
+          this.loadMovies();
+          this.stop();
+        });
+      }
     } else {
+      // Create a new movie
       this.movieService.createMovie(movieData).subscribe(() => {
         this.loadMovies();
         this.stop();
       });
     }
   }
-
+  
   patchData() {
     const movieData = {
       movie_name: this.movieName,

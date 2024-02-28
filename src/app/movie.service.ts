@@ -6,25 +6,25 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MovieService {
 
-  constructor(private hc: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getMovies() {
-    return this.hc.get('http://teja2906.pythonanywhere.com/movie/?format=json');
+    return this.httpClient.get<any[]>('http://teja2906.pythonanywhere.com/movie/?format=json');
   }
 
   deleteMovie(id: number) {
-    return this.hc.delete(`http://teja2906.pythonanywhere.com/movie/${id}/?format=json`);
+    return this.httpClient.delete(`http://teja2906.pythonanywhere.com/movie/${id}/`);
   }
 
   createMovie(movieData: any) {
-    return this.hc.post('http://teja2906.pythonanywhere.com/movie/?format=json', movieData);
+    return this.httpClient.post('http://teja2906.pythonanywhere.com/movie/', movieData);
   }
 
   updateMovie(updatedmovieData: any, id: number) {
-    return this.hc.put(`http://teja2906.pythonanywhere.com/movie/${id}/?format=json`, updatedmovieData);
+    return this.httpClient.put(`http://teja2906.pythonanywhere.com/movie/${id}/`, updatedmovieData);
   }
 
   patchMovie(id: number, updatedmovieData: any) {
-    return this.hc.patch(`http://teja2906.pythonanywhere.com/movie/${id}/?format=json`, updatedmovieData);
+    return this.httpClient.patch(`http://teja2906.pythonanywhere.com/movie/${id}/`, updatedmovieData);
   }
 }
