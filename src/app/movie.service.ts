@@ -9,22 +9,22 @@ export class MovieService {
   constructor(private httpClient: HttpClient) { }
 
   getMovies() {
-    return this.httpClient.get<any[]>('http://teja2906.pythonanywhere.com/movie/?format=json');
+    return this.httpClient.get<any[]>('https://movie-api-sooty.vercel.app/api/movie/?format=json');
   }
 
   deleteMovie(id: number) {
-    return this.httpClient.delete(`http://teja2906.pythonanywhere.com/movie/${id}/`);
+    return this.httpClient.delete(`https://movie-api-sooty.vercel.app/api/movie/${id}/`);
   }
 
   createMovie(movieData: any) {
-    return this.httpClient.post('http://teja2906.pythonanywhere.com/movie/', movieData);
+    return this.httpClient.post('https://movie-api-sooty.vercel.app/api/movie/', movieData);
   }
 
   updateMovie(updatedmovieData: any, id: number) {
-    return this.httpClient.put(`http://teja2906.pythonanywhere.com/movie/${id}/`, updatedmovieData);
+    return this.httpClient.put(`https://movie-api-sooty.vercel.app/api/movie/${id}/`, updatedmovieData);
   }
 
   patchMovie(id: number, updatedmovieData: any) {
-    return this.httpClient.patch(`http://teja2906.pythonanywhere.com/movie/${id}/`, updatedmovieData);
+    return this.httpClient.patch(`https://movie-api-sooty.vercel.app/api/movie/${id}/`, updatedmovieData);
   }
 }
