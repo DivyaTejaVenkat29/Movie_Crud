@@ -108,4 +108,20 @@
   .add-button-container .btn {
     margin-top: 20px; /* Adjust as needed */
   }
-    
+
+  
+  
+  .filter-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 20px;
+    margin-left: 20px; /* Add margin to separate from movie list */
+  }
+  .filter-section
+  {
+    gap:20px;
+    display: flex;
+    align-items: flex-end;
+  }

@@ -8,6 +8,11 @@ import { MovieService } from './movie.service';
 })
 export class AppComponent {
   movies: any[] = [];
+  filteredMovies: any[] = [];
+  filterGenre: string = '';
+  filterYear: string = '';
+  sortBy: string = '';
+  selectedYears: string[] = []
   showForm = false;
   movieId: number | null = null;
   movieName = '';
@@ -15,13 +20,21 @@ export class AppComponent {
   movieYear: number | null = null;
   movieImageLink = '';
   editMode = false;
+  genres: string[] = [];
+  years: number[] = [];
 
   constructor(private movieService: MovieService) {
     this.loadMovies();
+
   }
 
   loadMovies() {
-    this.movieService.getMovies().subscribe((data: any) => this.movies = data);
+    this.movieService.getMovies().subscribe((data: any) => {
+      this.movies = data;
+      this.filteredMovies = this.movies.slice(); // Update filteredMovies when movies are loaded
+      this.updateGenres();
+      this.updateYears();
+    });
   }
 
   remove(id: number) {
@@ -110,4 +123,34 @@ export class AppComponent {
     this.movieImageLink = '';
     this.editMode = false;
   }
+  getUniqueValues(key: string, array: any[]): any[] {
+    return Array.from(new Set(array.map(item => item[key])));
+  }
+  updateGenres() {
+    this.genres = this.getUniqueValues('genre', this.filteredMovies);
+  }
+
+  // Helper method to update available years
+  updateYears() {
+    this.years = this.getUniqueValues('year', this.filteredMovies).sort((a, b) => a - b);
+  }
+  filterMovies() {
+    // Filter movies based on selected filters
+    this.filteredMovies = this.movies.filter(movie => {
+      const genreMatch = !this.filterGenre || movie.genre === this.filterGenre;
+      const yearMatch = !this.filterYear || movie.year.toString() === this.filterYear;
+      const selectedYearsMatch = this.selectedYears.length === 0 || this.selectedYears.includes(movie.year.toString());
+      return genreMatch && yearMatch && selectedYearsMatch;
+    });
+
+    // Sort filtered movies based on the selected sorting option
+    if (this.sortBy === 'a-z') {
+      this.filteredMovies.sort((a, b) => a.movie_name.localeCompare(b.movie_name));
+    } else if (this.sortBy === 'z-a') {
+      this.filteredMovies.sort((a, b) => b.movie_name.localeCompare(a.movie_name));
+    } else if (this.sortBy === 'new-arrival') {
+      this.filteredMovies.sort((a, b) => b.year - a.year);
+    }
+  }  
+
 }
