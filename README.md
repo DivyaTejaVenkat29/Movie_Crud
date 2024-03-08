@@ -1,27 +1,67 @@
-# MovieApp
+# MOVIE API
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.3.
+## Overview
 
-## Development server
+This project is a web application built using Django for the backend API and Angular for the frontend interface. It allows users to perform CRUD (Create, Read, Update, Delete) operations on a database through a user-friendly interface.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+The backend API is developed using Django, which provides endpoints to interact with the database. These endpoints handle requests from the frontend, perform necessary database operations, and return appropriate responses.
 
-## Code scaffolding
+The frontend interface is developed using Angular, a powerful JavaScript framework for building single-page applications. It interacts with the Django backend through HTTP requests to fetch and manipulate data from the database.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The entire application is deployed on the Vercel platform, which provides hosting for both the Django backend and Angular frontend. This allows users to access the application from any device with an internet connection.
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **CRUD Operations**: Users can create, read, update, and delete records in the database.
+- **Responsive Design**: The frontend interface is responsive and adapts to different screen sizes.
+- **Real-time Updates**: Changes made by one user are immediately reflected to other users in real-time.
+- **Search and Filtering**: Users can search for specific records and apply filters to narrow down results.
+- **Customizable Settings**: Users can customize various settings and preferences according to their needs.
 
-## Running unit tests
+## Technologies Used
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- **Django**: Python-based web framework for building the backend API.
+- **Django REST Framework (DRF)**: Toolkit for building Web APIs in Django.
+- **Angular**: TypeScript-based frontend framework for building single-page applications.
+- **HTML/CSS/JavaScript**: Frontend development languages for building the user interface.
+- **Vercel**: Cloud platform for deploying serverless functions and static websites.
+- **Railway**:Cloud platform for providing database.
 
-## Running end-to-end tests
+## Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To run the project locally, follow these steps:
 
-## Further help
+1. Clone the repository: `git clone <repository-url>`
+2. Navigate to the backend directory: `cd backend`
+3. Install backend dependencies: `pip install -r requirements.txt`
+4. Run the Django development server: `python manage.py runserver`
+5. Navigate to the frontend directory: `cd frontend`
+6. Install frontend dependencies: `npm install`
+7. Run the Angular development server: `ng serve`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Deployment
+
+The project is deployed on the Vercel platform. To deploy the application:
+
+1. Create a Vercel account and install the Vercel CLI.
+2. Navigate to the project directory.
+3. Run the Vercel deployment command: `vercel --prod`
+4. Follow the prompts to deploy the backend and frontend applications.
+
+## Usage
+
+Once the application is deployed, users can access it through the provided URL. They can then perform CRUD operations, search for records, and customize settings as needed.
+
+## Contributing
+
+Contributions are welcome! If you would like to contribute to the project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature: `git checkout -b feature-name`
+3. Make changes and commit them: `git commit -am 'Add new feature'`
+4. Push your changes to the branch: `git push origin feature-name`
+5. Submit a pull request with a detailed description of your changes.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
